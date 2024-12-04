@@ -9,7 +9,8 @@
 #  review     :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
-# class Review < ApplicationRecord
-# belongs_to(:reviewer, class_name: "User", foreign_key: "reviewer_id")
-# end
+class Review < ApplicationRecord
+ belongs_to(:reviewer, class_name: "User", foreign_key: "reviewer_id")
+end
