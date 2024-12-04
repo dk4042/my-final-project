@@ -1,90 +1,155 @@
-<h2>Add your review</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Review</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
 
-<hr>
-<form action="/insert_review" method="post">
-  <div>
-    <label for="name_box"> Coffee & brand name </label>
-    <input type="text" id="name_box" name="the_name">
-  </div>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
 
-  <div>
-    <label for="region_box"> Region of origin </label>
-    <input type="text" id="region_box" name="the_region" >
-  </div>
+      h2 {
+        text-align: center;
+        color: #3d2a15;
+        font-size: 24px;
+      }
 
-  <div>
-    <label for="review_box"> Your Review</label>
-    <textarea id="review_box" name="the_review" rows="4"></textarea>
-  </div>
+      form {
+        background-color: white;
+        padding: 20px;
+        max-width: 600px;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
 
-  <div>
-    <label for="image_box">Image</label>
-    <input type="text" id="image_box" name="the_image">
-  </div>
+      form div {
+        margin-bottom: 15px;
+      }
 
-</hr>
+      label {
+        font-weight: bold;
+        color: #3d2a15;
+        display: block;
+        margin-bottom: 5px;
+      }
 
-<button type="submit" style="background-color: #D2B48C; color: black;">Add review</button>
+      input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
 
-<h2>Recent coffee reviews</h2>
-<table border="1">
-  <tr>
-    <th>
-      Review author
-    </th>
-    <th>
-      Coffee & brand name
-    </th>
+      button {
+        background-color: #D2B48C;
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+      }
 
-    <th>
-      Region
-    </th>
+      button:hover {
+        background-color: #B08D57;
+        color: white;
+      }
 
-    <th>
-      Review
-    </th>
+      hr {
+        border: 1px solid #D2B48C;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
 
-    <th>
-      Image
-    </th>
+  <body>
+    <h2>Add your review</h2>
+    <hr>
+    <form action="/insert_review" method="post">
+      <div>
+        <label for="name_box">Coffee & brand name</label>
+        <input type="text" id="name_box" name="the_name">
+      </div>
 
-  </tr>
+      <div>
+        <label for="region_box">Region of origin</label>
+        <input type="text" id="region_box" name="the_region">
+      </div>
 
-  <% @list_of_reviews.each do |a_review| %>
-  <tr>
-    <td>
-      <% matching_users = User.where(id: a_review.user_id) %>
-      <% the_user = matching_users.at(0) %>
-      <% if the_user.present? %>
-        <%= the_user.email %>
-      <% else %>
-        <span>User not found</span>
-      <% end %>
+      <div>
+        <label for="review_box">Your Review</label>
+        <textarea id="review_box" name="the_review" rows="4"></textarea>
+      </div>
 
+      <div>
+        <label for="image_box">Image</label>
+        <input type="text" id="image_box" name="the_image">
+      </div>
 
-    </td>
-    <td>
-      <%= a_review.name %>
-    </td>
+      <button type="submit">Add review</button>
+    </form>
+  </body>
+</html>
 
-     <td>
-      <%= a_review.region %>
-    </td>
+<h2 style="text-align: center; color: #3d2a15;">Recent Coffee Reviews</h2>
 
-     <td>
-      <%= a_review.review %>
-    </td>
+<table style="width: 100%; border-collapse: collapse; margin: 20px auto; max-width: 1200px;">
+  <thead>
+    <tr style="background-color: #D2B48C; color: white; font-weight: bold;">
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Review Author</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Coffee & Brand Name</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Region</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Review</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Image</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">Details</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @list_of_reviews.each do |a_review| %>
+    <tr style="background-color: #fff; border-bottom: 1px solid #ddd;">
+      <td style="padding: 10px; text-align: left; color: #3d2a15;">
+        <% matching_users = User.where(id: a_review.user_id) %>
+        <% the_user = matching_users.at(0) %>
+        <% if the_user.present? %>
+          <%= the_user.email %>
+        <% else %>
+          <span>User not found</span>
+        <% end %>
+      </td>
 
-    <td>
-      <img src="<%= a_review.image %>" style="width:250px;">
-    </td>
+      <td style="padding: 10px; text-align: left; color: #3d2a15;">
+        <%= a_review.name %>
+      </td>
 
-    <td>
-      <a href="/coffee_reviews/<%= a_review.id %>">
-        Show details
-      </a>
-    </td>
-   
-  </tr>
-  <% end %>
+      <td style="padding: 10px; text-align: left; color: #3d2a15;">
+        <%= a_review.region %>
+      </td>
+
+      <td style="padding: 10px; text-align: left; color: #3d2a15;">
+        <%= a_review.review %>
+      </td>
+
+      <td style="padding: 10px; text-align: left;">
+        <img src="<%= a_review.image %>" style="width: 250px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      </td>
+
+      <td style="padding: 10px; text-align: center;">
+        <a href="/coffee_reviews/<%= a_review.id %>" style="color: #D2B48C; text-decoration: none; font-weight: bold;">Show Details</a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
