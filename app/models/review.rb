@@ -10,5 +10,6 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class Review < ApplicationRecord
-end
+# class Review < ApplicationRecord
+# belongs_to(:reviewer, class_name: "User", foreign_key: "reviewer_id")
+# end

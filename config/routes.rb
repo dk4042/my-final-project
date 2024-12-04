@@ -1,4 +1,8 @@
+
+
 Rails.application.routes.draw do
+  devise_for :users
+  root "boards#index"
 
   get("/", { :controller => "coffee", :action => "homepage" })
 
