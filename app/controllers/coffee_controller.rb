@@ -46,6 +46,7 @@ class CoffeeController < ApplicationController
     a.review = params.fetch("the_review")
     a.image = params.fetch("the_image")
    
+    a.user_id = current_user.id
     a.save
 
     redirect_to("/coffee_reviews")

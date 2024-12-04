@@ -1,9 +1,6 @@
+<h2>Add your review</h2>
 
-<a href="/">Homepage </a>
-    
-    <h2>Add your review</h2>
 <hr>
-
 <form action="/insert_review" method="post">
   <div>
     <label for="name_box"> Coffee & brand name </label>
@@ -33,6 +30,9 @@
 <table border="1">
   <tr>
     <th>
+      Review author
+    </th>
+    <th>
       Coffee & brand name
     </th>
 
@@ -52,6 +52,17 @@
 
   <% @list_of_reviews.each do |a_review| %>
   <tr>
+    <td>
+      <% matching_users = User.where(id: a_review.user_id) %>
+      <% the_user = matching_users.at(0) %>
+      <% if the_user.present? %>
+        <%= the_user.email %>
+      <% else %>
+        <span>User not found</span>
+      <% end %>
+
+
+    </td>
     <td>
       <%= a_review.name %>
     </td>
