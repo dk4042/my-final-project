@@ -1,7 +1,5 @@
 class CoffeeController < ApplicationController
-  def homepage
-    render({ :template => "home_templates/home"})
-  end
+
 
   def show
     the_id = params.fetch("the_id")
@@ -57,5 +55,15 @@ class CoffeeController < ApplicationController
     @list_of_reviews = matching_reviews.order({ :created_at => :desc })
     render({ :template => "reviews_templates/reviews"})
   end
+
+  def random
+    @review = Review.order("RANDOM()").first
+    if @review
+      render({ :template => "reviews_templates/random"}) 
+    else
+      render plain: "No reviews found", status: :not_found
+    end
+  end
+
 
 end

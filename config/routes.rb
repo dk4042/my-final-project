@@ -1,10 +1,6 @@
-
-
 Rails.application.routes.draw do
   devise_for :users
-  root "coffee#reviews"
-
-  get("/", { :controller => "coffee", :action => "homepage" })
+  root "home#homepage"
 
   get("/coffee_reviews", { :controller => "coffee", :action => "reviews" })
 
@@ -13,5 +9,7 @@ Rails.application.routes.draw do
 
   get("/delete_review/:the_id", { :controller => "coffee", :action => "destroy" }  )
   post("/modify_review/:the_id", { :controller => "coffee", :action => "update" } )
+
+  get("/random_review", { :controller => "coffee", :action => "random" })
   
 end

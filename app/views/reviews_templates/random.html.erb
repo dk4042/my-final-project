@@ -1,0 +1,19 @@
+<h1 style="text-align: center" >Random Coffee Review</h1>
+
+<% if @review %>
+  <div style="text-align: center; margin-bottom: 20px;">
+    <img src="<%= @review.image %>" alt="<%= @review.name %>" style="max-width: 300px; height: auto; border-radius: 8px;">
+  </div>
+
+  <div class="review-box" style="text-align: center;">
+    <p><strong>Name:</strong> <%= @review.name %></p>
+    <p><strong>Region:</strong> <%= @review.region %></p>
+    <p><strong>Review:</strong> <%= @review.review %></p>
+  </div>
+<% else %>
+  <p>No reviews are available at this time.</p>
+<% end %>
+
+<div style="margin-top: 20px; text-align: center;">
+  <a href="/random_review" style="text-decoration: none; padding: 10px 15px; background-color: #C9A87A; color: white; border-radius: 5px;">Show Another Random Review</a>
+</div>
