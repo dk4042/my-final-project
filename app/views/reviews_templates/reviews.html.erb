@@ -1,0 +1,70 @@
+
+<a href="/">Homepage </a>
+    
+    <h2>Add your review</h2>
+<hr>
+
+<form action="/insert_review" method="post">
+  <div>
+    <label for="name_box"> Coffee & brand name </label>
+    <input type="text" id="name_box" name="the_name">
+  </div>
+
+  <div>
+    <label for="region_box"> Region of origin </label>
+    <input type="text" id="region_box" name="the_region" >
+  </div>
+
+  <div>
+    <label for="review_box"> Your Review</label>
+    <textarea id="review_box" name="the_bio" rows="4"></textarea>
+  </div>
+
+  <div>
+    <label for="image_box">Image</label>
+    <input type="text" id="image_box" name="the_image">
+  </div>
+
+</hr>
+
+<button type="submit" style="background-color: #D2B48C; color: black;">Add review</button>
+
+<h2>Recent coffee reviews</h2>
+<table border="1">
+  <tr>
+    <th>
+      Coffee & brand name
+    </th>
+
+    <th>
+      Image
+    </th>
+
+    <th>
+      Review
+    </th>
+
+  </tr>
+
+  <% @list_of_reviews.each do |a_review| %>
+  <tr>
+    <td>
+      <%= a_review.name %>
+    </td>
+
+     <td>
+      <%= a_review.region %>
+    </td>
+
+     <td>
+      <%= a_review.review %>
+    </td>
+
+    <td>
+      <img src="<%= a_review.image %>" style="width:250px;">
+    </td>
+
+   
+  </tr>
+  <% end %>
+</table>
