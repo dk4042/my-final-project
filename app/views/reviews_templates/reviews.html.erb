@@ -17,7 +17,7 @@
 
   <div>
     <label for="review_box"> Your Review</label>
-    <textarea id="review_box" name="the_bio" rows="4"></textarea>
+    <textarea id="review_box" name="the_review" rows="4"></textarea>
   </div>
 
   <div>
@@ -37,11 +37,15 @@
     </th>
 
     <th>
-      Image
+      Region
     </th>
 
     <th>
       Review
+    </th>
+
+    <th>
+      Image
     </th>
 
   </tr>
@@ -64,6 +68,11 @@
       <img src="<%= a_review.image %>" style="width:250px;">
     </td>
 
+    <td>
+      <a href="/coffee_reviews/<%= a_review.id %>">
+        Show details
+      </a>
+    </td>
    
   </tr>
   <% end %>

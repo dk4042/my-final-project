@@ -1,0 +1,44 @@
+<h1>
+  Coffee review #<%= @the_review.id %> details
+</h1>
+
+<a href="/coffee_reviews">
+  Go back to all reviews
+</a>
+<a href="/">
+  Homepage
+</a>
+
+<hr>
+
+<div>
+<a href ="/delete_review/<%= @the_review.id %>">Delete review</a>
+</div>
+
+<hr>
+
+<form action="/modify_review/<%= @the_review.id %>" method="post">
+<div>
+  <label for="name_box">Updated Coffee Brand & Name </label>
+  <input id ="name_box" type="text" name = "the_name" value ="<%=@the_review.name%>">
+</div>
+
+<div>
+  <label for="region_box">Updated region of origin</label>
+  <input id ="region_box" type="text" name = "the_region" value ="<%=@the_review.region%>">
+</div>
+
+<div>
+  <label for="review_box">Updated review</label>
+  <input id ="review_box" type="text" name = "the_review" value ="<%=@the_review.review%>">
+</div>
+
+<div>
+  <label for="image_box">Updated Image</label>
+  <input id ="image_box" type="text" name ="the_image" value ="<%=@the_review.image%>">
+</div>
+
+ <button type="submit">Update Coffee Review</button>
+ </form>
+
+ 
