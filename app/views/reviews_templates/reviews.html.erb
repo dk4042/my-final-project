@@ -97,6 +97,11 @@
         <label for="image_box">Image</label>
         <input type="text" id="image_box" name="the_image">
       </div>
+    
+    <div>
+        <label for="rank_box">Rank out of 5</label>
+        <input type="text" id="rank_box" name="the_rank">
+      </div>
 
       <button type="submit">Add review</button>
     </form>
@@ -144,6 +149,10 @@
 
       <td style="padding: 10px; text-align: left;">
         <img src="<%= a_review.image %>" style="width: 250px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      </td>
+
+      <td style="padding: 10px; text-align: left; color: #3d2a15;">
+        <%= a_review.rank %>
       </td>
 
       <td style="padding: 10px; text-align: center;">
