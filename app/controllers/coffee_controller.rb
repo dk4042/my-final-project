@@ -59,7 +59,7 @@ class CoffeeController < ApplicationController
   end
 
   def random
-    @review = Review.where("rate >= ?", 4).order("RANDOM()").first
+    @review = Review.where(rate: 4..5).order(Arel.sql('RANDOM()')).first
     if @review
       render({ :template => "reviews_templates/random"}) 
     else
