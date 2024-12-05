@@ -5,6 +5,7 @@
 #  id         :bigint           not null, primary key
 #  image      :string
 #  name       :string
+#  rate       :integer
 #  region     :string
 #  review     :text
 #  created_at :datetime         not null

@@ -19,7 +19,7 @@ class CoffeeController < ApplicationController
     the_review.region = params.fetch("the_region")
     the_review.review = params.fetch("the_review")
     the_review.image = params.fetch("the_image")
-    the_review.rank = params.fetch("the_rank")
+    the_review.rate = params.fetch("the_rate")
   
     the_review.save
   
@@ -44,7 +44,7 @@ class CoffeeController < ApplicationController
     a.region = params.fetch("the_region")
     a.review = params.fetch("the_review")
     a.image = params.fetch("the_image")
-    a.rank = params.fetch("the_rank")
+    a.rate = params.fetch("the_rate")
    
     a.user_id = current_user.id
     a.save

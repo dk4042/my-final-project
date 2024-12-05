@@ -99,8 +99,8 @@
       </div>
     
     <div>
-        <label for="rank_box">Rank out of 5</label>
-        <input type="text" id="rank_box" name="the_rank">
+        <label for="rate_box">Rate out of 5</label>
+        <input type="text" id="rate_box" name="the_rate">
       </div>
 
       <button type="submit">Add review</button>
@@ -118,7 +118,8 @@
       <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Region</th>
       <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Review</th>
       <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Image</th>
-      <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">Details</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">Rating</th>
+      <th style="padding: 10px; border: 1px solid #ddd; text-align: center;">Edit or delete</th>
     </tr>
   </thead>
   
@@ -152,7 +153,7 @@
       </td>
 
       <td style="padding: 10px; text-align: left; color: #3d2a15;">
-        <%= a_review.rank %>
+        <%= a_review.rate %>
       </td>
 
       <td style="padding: 10px; text-align: center;">
