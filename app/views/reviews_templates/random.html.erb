@@ -1,4 +1,4 @@
-<h1 style="text-align: center" >Random Coffee Review</h1>
+<h1 style="text-align: center">Random Coffee Review</h1>
 
 <% if @review %>
   <div style="text-align: center; margin-bottom: 20px;">
@@ -9,10 +9,10 @@
     <p><strong>Name:</strong> <%= @review.name %></p>
     <p><strong>Region:</strong> <%= @review.region %></p>
     <p><strong>Review:</strong> <%= @review.review %></p>
-     <p><strong>Review:</strong> <%= @review.rate %></p>
+    <p><strong>Rating:</strong> <%= @review.rate %></p>
   </div>
 <% else %>
-  <p>No reviews are available at this time.</p>
+  <p>No reviews with a rating of 4 or higher are available at this time.</p>
 <% end %>
 
 <div style="margin-top: 20px; text-align: center;">
