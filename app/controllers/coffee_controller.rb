@@ -59,13 +59,12 @@ class CoffeeController < ApplicationController
   end
 
   def random
-    @review = Review.order("RANDOM()").first
+    @review = Review.where("rate >= ?", 4).order("RANDOM()").first
     if @review
       render({ :template => "reviews_templates/random"}) 
     else
       render plain: "No reviews found", status: :not_found
     end
   end
-
 
 end
