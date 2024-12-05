@@ -54,7 +54,7 @@ class CoffeeController < ApplicationController
 
   def reviews
     matching_reviews = Review.all
-    @list_of_reviews = matching_reviews.order({ :created_at => :desc })
+    @list_of_reviews = matching_reviews.order({ rate: :desc })
     render({ :template => "reviews_templates/reviews"})
   end
 
