@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   get("/random_review", { :controller => "coffee", :action => "random" })
   
+  get("/feedback", { :controller => "coffee", :action => "feedback" })
+  post("insert_feedback",  { :controller => "coffee", :action => "submit" } )
 end

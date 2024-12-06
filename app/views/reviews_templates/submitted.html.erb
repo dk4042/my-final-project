@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thank you for your submission!</title>
+     <h2>Thank you for your submission!</h2>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      h2 {
+        text-align: center;
+        color: #3d2a15;
+        font-size: 24px;
+      }
+
+      form {
+        background-color: white;
+        padding: 20px;
+        max-width: 600px;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      form div {
+        margin-bottom: 15px;
+      }
+
+      label {
+        font-weight: bold;
+        color: #3d2a15;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        background-color: #D2B48C;
+        color: black;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #B08D57;
+        color: white;
+      }
+
+      hr {
+        border: 1px solid #D2B48C;
+        margin: 20px 0;
+      }
+    </style>
+  </head>

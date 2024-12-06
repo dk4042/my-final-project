@@ -67,4 +67,11 @@ class CoffeeController < ApplicationController
     end
   end
 
+  def feedback
+    render({ :template => "reviews_templates/feedback"}) 
+  end 
+
+  def submit
+    render({ :template => "reviews_templates/submitted"}) 
+  end 
 end
